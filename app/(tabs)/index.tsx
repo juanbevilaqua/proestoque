@@ -1,14 +1,39 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, KeyboardAvoidingView, ScrollView, View, Pressable, Text} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Button from '../../components/Button'
+import Input from '../../components/Input'
+
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+//import { Color } from 'react-native/types_generated/Libraries/Animated/AnimatedExports';
+//import { View } from 'react-native-reanimated/lib/typescript/Animated';
 
-export default function HomeScreen() {
+export default function HomeScreen(){
+  return(
+    <SafeAreaView style={{flex:1}}> 
+    <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+           <Text>Seja bem-vindo à Home</Text>
+        </ScrollView>
+            
+    </KeyboardAvoidingView>
+    </SafeAreaView>
+    
+
+  );
+
+}
+
+
+
+/*export default function HomeScreen() {
   return (
+ 
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
@@ -18,7 +43,7 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <ThemedText type="title">Welcome, Mestre Juan!</ThemedText>
         <HelloWave />
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
@@ -74,11 +99,17 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
+
+
+      
+
+
+      
     </ParallaxScrollView>
   );
-}
+}*/
 
-const styles = StyleSheet.create({
+/*const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -96,3 +127,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
 });
+*/
+
+
