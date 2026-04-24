@@ -1,9 +1,14 @@
 import { KeyboardAvoidingView, Platform, Text, StyleSheet, View, Image, TouchableOpacity, StatusBar } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
-import { Colors, Spacing, Radius, Typography } from '../../constants/theme2';
-import Button from '../../components/Button';
-import Input from '../../components/Input';
+//import { Colors, Spacing, Radius, Typography } from '@/constants/theme2';
+//import Button from '@/components/Button';
+//import Input from '@/components/Input';
+
+import Button from '../../src/components/Button';
+import Input from '../../src/components/Input';
+import { Colors, Spacing, Radius, Typography } from '../../src/constants/theme2';
+
 import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 

@@ -1,15 +1,15 @@
 import { Image } from 'expo-image';
 import { Platform, StyleSheet, KeyboardAvoidingView, ScrollView, View, Pressable, Text} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Button from '../../components/Button'
-import Input from '../../components/Input'
+//import Button from '@/components/Button';
+//import Input from '@/components/Input';
 
 
-import { HelloWave } from '@/components/hello-wave';
+{/*import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import { Link } from 'expo-router';*/}
 //import { Color } from 'react-native/types_generated/Libraries/Animated/AnimatedExports';
 //import { View } from 'react-native-reanimated/lib/typescript/Animated';
 

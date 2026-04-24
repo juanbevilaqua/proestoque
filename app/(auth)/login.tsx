@@ -1,11 +1,17 @@
 import { Text, Image } from "react-native";
 import { View } from "react-native";
-import Button from '../../components/Button';
-import Input from '../../components/Input';
+//import Button from '@/components/Button';
+//import Button from '@/components/Button';
+//import Input from '@/components/Input';
+
+import Button from '../../src/components/Button';
+import Input from '../../src/components/Input';
+import { Colors, Spacing, Radius, Typography } from '../../src/constants/theme2';
+
 import { SafeAreaView } from "react-native-safe-area-context";
 import { KeyboardAvoidingView, StyleSheet, Platform, TouchableOpacity, StatusBar} from "react-native";
 import { Ionicons } from '@expo/vector-icons';
-import { Colors, Spacing, Radius, Typography } from '../../constants/theme2';
+//import { Colors, Spacing, Radius, Typography } from '@/constants/theme2';
 import { router } from "expo-router";
 
 
