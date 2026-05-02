@@ -1,16 +1,16 @@
-import { KeyboardAvoidingView, Platform, Text, StyleSheet, View, Image, TouchableOpacity, StatusBar } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
+import { Image, KeyboardAvoidingView, Platform, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 //import { Colors, Spacing, Radius, Typography } from '@/constants/theme2';
 //import Button from '@/components/Button';
 //import Input from '@/components/Input';
 
 import Button from '../../src/components/Button';
 import Input from '../../src/components/Input';
-import { Colors, Spacing, Radius, Typography } from '../../src/constants/theme2';
+import { Colors, Radius, Spacing, Typography } from '../../src/constants/theme2';
 
-import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 
 
 export default function RecuperarSenhaScreen () {
@@ -28,7 +28,7 @@ export default function RecuperarSenhaScreen () {
     }
 
     return (
-        <SafeAreaView style={{flex: 1, backgroundColor: Colors.primary[100]}}>
+        <SafeAreaView style={{flex: 1, backgroundColor: Colors.background}}>
             <StatusBar barStyle="dark-content" backgroundColor={Colors.primary[100]}/>
             <KeyboardAvoidingView  style={{flex: 1}} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
                 <View style={styles.container}>
