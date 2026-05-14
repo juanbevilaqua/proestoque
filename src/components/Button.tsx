@@ -1,17 +1,20 @@
-import { Pressable, Text, StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Colors, Spacing, Radius, Typography } from '../constants/theme2';
+import { ActivityIndicator, Pressable, StyleSheet, Text } from "react-native";
+import { Colors, Radius, Spacing, Typography } from '../constants/theme2';
 
 type ButtonProps = {
   conteudo: string;
   onPress: () => void;
   fullWidth?: boolean;
+  loading?: boolean; // quando for True, ícone aparece ícone e o botão é desabilitado
 };
 
 export default function Button(props: ButtonProps){
 return(
-    <Pressable style={[styles.button, props.fullWidth && {width: '100%'}]} onPress={props.onPress}>
-        <Text style={styles.button_text}>{props.conteudo}</Text>
+    <Pressable style={[styles.button, props.fullWidth && {width: '100%'}]} onPress={props.onPress} disabled={props.loading}>
+        {props.loading? 
+            <ActivityIndicator color="white" size="small" /> :
+            <Text style={styles.button_text}>{props.conteudo}</Text>
+         }
     </Pressable>
 
 );
@@ -27,6 +30,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: Spacing[3],
         paddingHorizontal: Spacing[2],
+        //marginHorizontal: Spacing[4],
 
     },
 

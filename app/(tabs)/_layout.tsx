@@ -28,7 +28,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="configuracoes"
         options={{
-          title: 'Configuraçõess',
+          title: 'Configurações',
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="settings" color={color} size={size} />
           ),

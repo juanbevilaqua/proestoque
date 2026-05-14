@@ -1,9 +1,7 @@
-import { Pressable, Text, StyleSheet, TextInput, KeyboardAvoidingView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Colors, Spacing, Radius, Typography } from '../constants/theme2';
-import { View } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from "react";
+import { Pressable, StyleSheet, TextInput, View } from "react-native";
+import { Colors, Spacing, Typography } from '../constants/theme2';
 
 
 type InputProps = {
@@ -13,6 +11,7 @@ type InputProps = {
     onChangeText?: (text: string) => void;
     isPassword?: boolean;
     error?: boolean;
+    onSubmitEditing?: () => void;
     
 };
 
@@ -27,7 +26,7 @@ export default function Input(props: InputProps){
             )}
 
             <TextInput placeholderTextColor={Colors.textSecondary} style={styles.input} placeholder={props.placeholder} 
-                value={props.value} onChangeText={props.onChangeText} secureTextEntry={secure}/>
+                value={props.value} onChangeText={props.onChangeText} onSubmitEditing={props.onSubmitEditing} secureTextEntry={secure}/>
 
             {/*Botão de ocultar*/}
             {props.isPassword && (

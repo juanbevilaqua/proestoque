@@ -165,9 +165,13 @@ const styles = StyleSheet.create({
     bttnAdd: {
     backgroundColor: Colors.primary[600],
     borderRadius: Radius.full,
-    paddingVertical: Spacing[2],
-    paddingHorizontal: Spacing[5],
-
+    //paddingVertical: Spacing[2],
+    //paddingHorizontal: Spacing[5],
+    gap: Spacing[4],
+    width: 52, 
+    height: 52,
+    alignItems: 'center',
+    justifyContent: 'center',
     },
 
     textBttnAdd: {

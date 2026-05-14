@@ -1,10 +1,12 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useCallback, useEffect, useState } from "react";
-import { FlatList, KeyboardAvoidingView, Platform, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
+import { FlatList, KeyboardAvoidingView, Platform, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { CATEGORIAS_MOCK, getTotalCategorias } from "src/types/Categoria";
 import { formatarPreco, getProdutosComEstoqueBaixo, getTotalProdutos, getValorTotalEstoque, PRODUTOS_MOCK } from "src/types/Produto";
 import { Colors, Radius, Spacing, Typography } from '../../src/constants/theme2';
+import { useAuth } from "../../src/contexts/AuthContext";
+
 
 //import Button from '@/components/Button';
 //import Input from '@/components/Input';
@@ -19,6 +21,8 @@ type CardResumo = {
 
 export default function HomeScreen(){
  const [now, setNow] = useState(new Date());
+ const {user} = useAuth();
+ 
 
   useEffect(() => {
     const interval = setInterval(() => { // Atualiza data e hora
@@ -48,6 +52,9 @@ export default function HomeScreen(){
   hour: '2-digit',
   minute: '2-digit',
 });
+
+const hora = new Date().getHours();
+const saudacao = hora < 12 ? "☀️ Bom dia" : hora < 18 ? "🌤️ Boa tarde" : "🌙 Boa noite";
 
 const alertas = getProdutosComEstoqueBaixo();
 
@@ -109,12 +116,18 @@ const produtosRecentes = [...PRODUTOS_MOCK].sort(
             {/* CABEÇALHO */}
            <View style={styles.header}>
               <View>
-                <Text style={styles.welcome_text}>Olá, Juan! 👋</Text>
+                <Text style={styles.welcome_text}>{saudacao}, {user?.nome?.split(" ")[0].toUpperCase()} !</Text>
                 <Text style={styles.date}>{dateTimeFormatted}</Text>
               </View>
               
-              <Pressable style={styles.bttnAdd}><Text style={styles.textBttnAdd}>+</Text></Pressable>
-           </View>
+              {/*<Pressable style={styles.bttnAdd}><Text style={styles.textBttnAdd}>+</Text></Pressable>*/}
+
+                <View style={styles.avatar}>
+                  <Text style={styles.avatarLetra}>
+                    {user?.nome?.charAt(0).toUpperCase() ?? "?"}
+                  </Text>
+                </View>
+              </View>
 
             {/* PAINEL GERAL */}
             <View style={styles.generalPanel}>
@@ -224,7 +237,7 @@ const styles = StyleSheet.create({
   },
 
   welcome_text: {
-    fontSize: Typography.fontSize.xl,
+    fontSize: Typography.fontSize.lg,
     fontWeight: Typography.fontWeight.bold,
   },
 
@@ -403,6 +416,9 @@ const styles = StyleSheet.create({
   bgStatusNormal: {
     backgroundColor: Colors.success.bg,
   },
+
+  avatar:      {width: 48, height: 48, borderRadius: Radius.full, backgroundColor: Colors.primary[600], alignItems: "center", justifyContent: "center" },
+  avatarLetra: { color: Colors.white, fontSize: Typography.fontSize.lg, fontWeight: Typography.fontWeight.bold },
 
 
 })
